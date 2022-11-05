@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+// Font family
+$font-primary: 'Roboto Condensed';
+
+// Text colors
+$ligth: #fff;
+
+// Bar color
+$bar-color: #DD141D;
+
+// Button color
+$button-primary: #575757;
+$button-danger: #575757;
+
+// Border color
+$border-primary: #BCBCBC;
+
+// Bar
+%bar {
+    background-color: $bar-color;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: $ligth;
+}
+
+%button {
+    background-color: $button-primary;
+    height: 40px;
+    width: 136px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px 1px #91919180;
+
+    font-family: $font-primary;
+    font-size: 1em;
+    color: $ligth;
+}
