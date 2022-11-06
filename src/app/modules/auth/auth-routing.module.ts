@@ -4,7 +4,6 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 
 const routes: Routes = [
     {
-        // path: INTERNAL_PATHS.AUTH_LOGIN,
         path: 'signup',
         component: SignUpComponent,
     }

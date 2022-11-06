@@ -1,0 +1,42 @@
+.client-profile {
+
+    &-container {
+        background-color: #EDEDED;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    &-bar {
+        @extend %bar;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-items: center;
+
+        &-slogan {
+            grid-column: 2/3;
+            height: 34px;
+            width: 72px; 
+
+            >img {
+                width: 100%;
+            }
+        }
+
+        &-exit {
+            grid-column: 3/4;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .icon {
+                height: 25px;
+                margin: 0 1rem;
+            }
+        }
+    }
+
+}
+
