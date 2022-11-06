@@ -9,8 +9,16 @@
     &-bar {
         @extend %bar;
 
-        .home, .exit {
-            margin: 0 20px;
+        .icon {
+            width: 25px;
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            margin: 0 15px;
+        }
+
+        >p {
+            font-family: $font-secondary;
+            font-size: 1.125em;
         }
     }
 
