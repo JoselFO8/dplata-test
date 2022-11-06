@@ -1,9 +1,10 @@
 .client-profile {
 
     &-container {
-        background-color: #EDEDED;
+        background-color: #EBECF0;
         height: 100vh;
         width: 100vw;
+        position: relative
     }
     
     &-bar {
@@ -35,6 +36,392 @@
                 height: 25px;
                 margin: 0 1rem;
             }
+        }
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.91rem;
+
+        .icon {
+            width: 1.5rem;
+            margin: 0.5rem 1rem;
+        }
+    }
+
+    &-products {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+
+
+        &-tabs {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: absolute;
+
+            &-izq {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                &-contain {
+                    background-color: #DD141D;
+                    height: 40px;
+                    width: 51px;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;  
+                    
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .icon {
+                        margin-left: 1rem;
+                    }
+                }
+
+                p {
+                    width: 53px;
+                    margin-left: 5px;
+                    font-family: $font-primary;
+                    font-size: 0.75em;
+                }
+            }
+
+            &-der {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                &-contain {
+                    background-color: #383838;
+                    height: 40px;
+                    width: 56px;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px; 
+                    
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    .icon {
+                        margin-right: 1rem;
+                    }
+                }
+
+                p {
+                    margin-right: 12px;
+                    font-family: $font-primary;
+                    font-size: 0.75em;
+                }
+            }
+        }
+
+        &-transfers {
+            position: relative;
+
+            &-available {
+                background-color: #F4F5F7;
+                height: 154.53px;
+                width: 154.53px;
+                border-radius: 50%;
+                z-index: 1;
+                
+                position: absolute;
+                left: 28.24px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p, h2 {
+                    font-family: $font-primary;
+                }
+
+                >p {
+                    font-weight: bold;
+                    margin-top: 1.322rem;
+                }
+
+                >h2 {
+                    font-size: 1.375em;
+                    font-weight: bold;
+                    margin-top: 0.823rem;
+                }
+
+                >small {
+                    font-size: 0.75em;
+                    font-family: $font-secondary;
+                    font-weight: 300;
+                    margin-top: .032rem;
+                }
+
+            }
+
+            &-semi-circle {
+                height: 101.58px;
+                width: 213.09px;
+                margin-top: 77.265px;
+                z-index: 0;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                &-spend, &-take {
+                    background-color: #D20015;
+
+                    .row {
+                        // background-color: grey;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        >img {
+                            width: 34px;
+                        }
+    
+                        >p {
+                            color: $ligth;
+                            font-size: 0.875em;
+                            font-family: $font-primary;
+                        }
+                    }
+                }
+
+                &-spend {
+                    height: 101.58px;
+                    width: 104.045px;
+
+                    border-bottom-left-radius: 101.58px;
+                    border-top-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+
+                    position: relative;
+
+                    .row {
+                        transform: rotate(45deg);
+                        width: 100px;
+                        position: absolute;
+                        top: 38px;
+                        right: 15px;
+                    }
+                }
+    
+                &-take {
+                    height: 101.58px;
+                    width: 104.045px;
+
+                    border-bottom-right-radius: 101.58px;
+                    border-top-right-radius: 6px;
+                    border-bottom-left-radius: 6px;
+
+                    position: relative;
+
+                    .row {
+                        width: 100px;
+                        transform: rotate(-45deg);
+                        position: absolute;
+                        top: 45px;
+                        left: 10px;
+
+                        p {
+                            background-color: blueviolet;
+                            
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+    
+    &-name {
+        width: 100%;
+        margin-top: 1rem;
+
+        >h2 {
+            font-size: 1.375em;
+            font-weight: bold;
+            font-family: $font-primary;
+            text-align: center;
+        }
+    }
+
+    &-payment {
+        // #E2E4EA
+        background-color: #E2E4EA;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding: 1rem 1.5rem;
+        margin: 3.5px 23px 0 24px;
+        border-radius: 1rem;
+
+        .subtitle {
+            font-size: 1.125em;
+            font-family: $font-primary;
+            font-weight: bold;
+        }
+
+        >p {
+            font-family: $font-primary;
+            font-size: 0.875em;
+            margin-top: 0.31rem;    
+        }
+
+        &-options {
+            width: calc(100% - 2.5rem + 1rem);
+            display: flex;
+            flex-direction: row;
+            // align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0 0 0.5rem;
+            
+
+            &-method {
+                background-color: #DBDCE5;
+                height: 88px;
+                width: 104px;
+                border-radius: 1rem;
+                
+    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+    
+                p {
+                    font-family: $font-primary;
+                    font-size: 0.875em; 
+                    font-weight: bold;    
+                }
+            }
+        }
+    }
+
+    &-benefits {
+        background-color: #E2E4EA;
+        margin: 1rem 1.437rem 1rem 1.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+
+        &-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+            
+            >img {
+                height: 32px;
+                width: 32px;
+            }
+
+            &-text {
+                h2, small {
+                    font-family: $font-primary;
+                }
+
+                >h2 {
+                    font-size: 1.125em;
+                    font-weight: bold;
+                    padding: 1px 0;
+                    margin-bottom: 0.125rem;
+                }
+
+                >small {
+                    font-size: 0.8125em;
+                    font-family: $font-primary;
+                }
+            }
+        }
+    }
+
+    &-catalogue {
+        margin: 0 2.8125rem;
+
+        &-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            >h2 {
+                font-size: 1.125em;
+                font-family: $font-primary;
+                font-weight: bold;
+                padding: 1.5px 0;
+            }
+
+            &-add {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.437rem;
+
+                >img {
+                    height: 16px;
+                    width: 16px;
+                }
+
+                >p {
+                    margin: 0;
+                    font-size: 0.875em;
+                    font-family: $font-primary;
+                    padding: 1px 0;
+                }
+
+            }
+        }
+
+        &-carousel {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+
+            &-piece {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: .375rem;
+
+                >img {
+                    height: 55px;
+                    width: 53px;
+                    border-radius: 0.5rem;
+                }
+
+                >small {
+                    text-align: center;
+                    font-family: $font-primary;
+                }
+            }
+        }
+
+    }
+
+    &-help {
+        position: absolute;
+        right: 0px;
+        top: 282.29px;
+        
+        img {
+            height: 59.21px;
+            width: 62.76px;
         }
     }
 
