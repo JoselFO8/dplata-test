@@ -32,5 +32,16 @@
         align-items: flex-start;
         justify-content: flex-start;
     }
+
+    &-help {
+        position: absolute;
+        right: 0px;
+        top: 541px;
+        
+        img {
+            height: 59.21px;
+            width: 62.76px;
+        }
+    }
     
 }

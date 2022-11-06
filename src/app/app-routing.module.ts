@@ -14,6 +14,11 @@ const routes: Routes = [
   {
     path: 'benefits', 
     component: BenefitsComponent
+  },
+  {
+    path: '**', 
+    redirectTo: 'auth', 
+    pathMatch: 'full', 
   }
 ];
 

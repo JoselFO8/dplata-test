@@ -1,4 +1,5 @@
 .benefits {
+    position: relative;
     
     &-container {
         background-color: #EDEDED;
@@ -148,7 +149,19 @@
 
             
 
-        }        
+        }
+        
+    }
+
+    &-help {
+        position: absolute;
+        right: 0px;
+        top: calc(70.79px + 60px);
+        
+        img {
+            height: 59.21px;
+            width: 62.76px;
+        }
     }
     
 }
