@@ -1,6 +1,5 @@
 .sign-up-form {
     background-color: #fff;
-    // Corregir width
     width: calc(100vw - 2rem - 2rem);
     padding: 1rem 1rem;
     border-radius: 8px;
@@ -64,6 +63,13 @@
             input {
                 width: 50px;
             }
+        }
+
+        .error {
+            color: #DD141D;
+            font-size: 0.75em;
+            font-family: $font-primary;
+            padding: 1px 0;
         }
     }
 

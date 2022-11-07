@@ -13,7 +13,7 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     {

@@ -1,74 +1,121 @@
 <div class="sign-up-form">
     <h4>Ingrese los siguientes datos</h4>
     
-    <form action="">
+    <form [formGroup]="signUpForm" (ngSubmit)="authenticate()" >
 
         <!--------------------------- Field Name --------------------------->
 
         <div class="sign-up-form-input">
             <label for="">Escriba su nombre completo</label>
-            <input type="text" placeholder="Ingrese el nombre">
+            <input type="text" placeholder="Ingrese el nombre" formControlName="name">
+            <small class="error"
+                *ngIf="form['name'].errors && signUpSubmmitted"
+            >
+                <ng-container [ngSwitch]="form['name'].value">
+                    <ng-container *ngSwitchCase="''">El campo es requerido!</ng-container>
+                    <ng-container *ngSwitchDefault>Máximo diez caracteres!</ng-container>
+                </ng-container>
+            </small>
         </div>
 
         <!--------------------------- Field Document type --------------------------->
 
         <div class="sign-up-form-input">
             <label for="">Seleccione tipo de documento</label>
-            <select name="" id="">
-                <option value="" disabled selected>Seleccione</option>
-                <option value="">Cédula de ciudadanía</option>
-                <option value="">Tarjeta de identidad</option>
-                <option value="">Cédula de extranjería</option>
+            <select name="" id="" formControlName="documentType">
+                <option class="disabled" value="" disabled selected>Seleccione</option>
+                <option value="CC">Cédula de ciudadanía</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="CE">Cédula de extranjería</option>
             </select>
+            <small class="error"
+                *ngIf="form['documentType'].errors && signUpSubmmitted"
+            >
+                <ng-container  *ngIf="!form['documentType'].value">
+                    <ng-container>Debe elegir un tipo de documento</ng-container>
+                </ng-container>
+            </small>
         </div>
 
         <!--------------------------- Field Document number --------------------------->
         
         <div class="sign-up-form-input">
             <label for="">Escriba número de documento</label>
-            <input type="number" placeholder="Ingrese el número">
+            <input type="number" placeholder="Ingrese el número" formControlName="documentNumber">
+            <small class="error"
+                *ngIf="form['documentNumber'].errors && signUpSubmmitted"
+            >
+                <ng-container [ngSwitch]="form['documentNumber'].value">
+                    <ng-container *ngSwitchCase="''">El campo es requerido!</ng-container>
+                    <ng-container *ngSwitchDefault>Máximo doce caracteres!</ng-container>
+                </ng-container>
+            </small>
         </div>
         
         <!--------------------------- Field City --------------------------->
 
         <div class="sign-up-form-input">
             <label for="">Escriba ciudad o municipio</label>
-            <input list="cities" placeholder="Ingrese el nombre">
+            <input list="cities" placeholder="Ingrese el nombre" formControlName="city">
             <datalist id="cities">
                 <option class="disabled" value="" disabled selected >Seleccione</option>
-                <!-- Apoyarse en un arr -->
                 <option value="Bogotá">
                 <option value="Bolivar">
                 <option value="Boyacá">
             </datalist>
+            <small class="error"
+                *ngIf="form['city'].errors && signUpSubmmitted"
+            >
+                <ng-container  *ngIf="!form['city'].value">
+                    <ng-container>El campo es requerido!</ng-container>
+                </ng-container>
+            </small>
         </div>
 
         <!--------------------------- Field Direction --------------------------->
 
         <div class="sign-up-form-input">
+            
             <label for="">¿Cuál es su dirección?</label>
-            <div class="sign-up-form-input-row">
+            <div class="sign-up-form-input-row" formGroupName="direction">
                 
-                <select name="" id="">
+                <!--------------------------- Field Road Type --------------------------->
+
+                <select name="roadType" id="roadType" formControlName="roadType">
                     <option value="" disabled selected>Seleccione</option>
-                    <option value="">Autopista</option>
-                    <option value="">Avenida</option>
-                    <option value="">Avenida calle</option>
-                    <option value="">Av. carreratera</option>
-                    <option value="">Calle</option>
+                    <option value="autopista">Autopista</option>
+                    <option value="avenida">Avenida</option>
+                    <option value="avenidaCalle">Avenida calle</option>
+                    <option value="avenidaCarretera">Av. carreratera</option>
+                    <option value="calle">Calle</option>
                 </select>
                 
-                <input type="text">
+                <!--------------------------- Field Road Type --------------------------->
+                <input type="text" formControlName="primaryRoadNumber"><p>#</p>
                 
-                <p>#</p>
+                <!--------------------------- Field Road Type --------------------------->
                 
-                <input type="text">
+                <input type="text" formControlName="secondaryRoadNumber"><p>-</p>
                 
-                <p>-</p>
+                <!--------------------------- Field Road Type --------------------------->
                 
-                <input type="text">
-
+                <input type="text" formControlName="specificNumber">
             </div>
+
+            <!-- Subfield Validation -->
+            <small class="error"
+                *ngIf="
+                    formDirection['roadType'].errors || 
+                    formDirection['primaryRoadNumber'].errors ||
+                    formDirection['secondaryRoadNumber'].errors ||
+                    formDirection['specificNumber'].errors
+                    && signUpSubmmitted
+                "
+            >
+                <ng-container  *ngIf="!form['city'].value">
+                    <ng-container>El campo es requerido!</ng-container>
+                </ng-container>
+            </small>
         </div>
 
         <!--------------------------- Field Neighborhood --------------------------->
@@ -82,11 +129,19 @@
 
         <div class="sign-up-form-input">
             <label for="">Número de celular</label>
-            <input type="number" placeholder="Escriba el número">
+            <input type="number" placeholder="Escriba el número" formControlName="phoneNumber">
+            <small class="error"
+                *ngIf="form['name'].errors && signUpSubmmitted"
+            >
+                <ng-container [ngSwitch]="form['phoneNumber'].value">
+                    <ng-container *ngSwitchCase="''">El campo phoneNumber es requerido!</ng-container>
+                    <ng-container *ngSwitchDefault>El contacto debe iniciar con el número 3</ng-container>
+                </ng-container>
+            </small>
         </div>
 
         <div class="sign-up-form-submit">
-            <button type="submit" >Crear</button>
+            <button type="submit" (click)="authenticate()">Crear</button>
         </div>
 
     </form>
