@@ -38,7 +38,7 @@
         <div class="client-profile-products-transfers">
             <div class="client-profile-products-transfers-available">
                 <p>Mi DaviPlata</p>
-                <h2>$18.000.000,00</h2>
+                <h2>${{data.totalLimit}}</h2>
                 <small>Disponible</small>
             </div>
 
@@ -60,7 +60,7 @@
     </div>
 
     <div class="client-profile-name">
-        <h2>NanaStore</h2>
+        <h2>{{data.storeName}}</h2>
     </div>
 
     <div class="client-profile-payment">
@@ -99,28 +99,22 @@
                 </div>
             </div>
             <div class="client-profile-catalogue-carousel">
-                <div class="client-profile-catalogue-carousel-piece">
-                    <img src="../../../../assets/images/Grupo 7379.png" alt="">
-                    <small>Avon</small>
-                </div>
-                <div class="client-profile-catalogue-carousel-piece">
-                    <img src="../../../../assets/images/Imagen 50.png" alt="">
-                    <small>Natura</small>
-                </div>
-                <div class="client-profile-catalogue-carousel-piece">
-                    <img src="../../../../assets/images/Imagen 51.png" alt="">
-                    <small>Aquarella</small>
-                </div>
-                <div class="client-profile-catalogue-carousel-piece">
-                    <img src="../../../../assets/images/Imagen 52.png" alt="">
-                    <small>Pacífica</small>
-                </div>
+                <ng-container *ngFor="let data of currentSlides.array">
+                    <div class="client-profile-catalogue-carousel-piece">
+                        <img src={{data.image}} alt={{data.name}} >
+                        <small>{{data.name}}</small>
+                    </div>
+                </ng-container>
             </div>
         </div>
 
         <!-- slides -->
         <div class="client-profile-catalogue-buttons">
-            
+            <ng-container *ngFor="let slide of slides">
+                <button [value]="slide" (click)="carousel($event)"
+                    [ngClass]="{'danger': currentSlides.current == slide}"
+                ></button>
+            </ng-container>
         </div>
 
     </div>
