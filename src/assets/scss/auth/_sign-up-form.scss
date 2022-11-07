@@ -23,6 +23,7 @@
         align-items: flex-start;
         justify-content: center;
         margin-bottom: 1rem;
+        padding-bottom: 1px;
 
         label {
             font-size: 1em;
@@ -38,11 +39,9 @@
             font-size: 1em;
             font-family: $font-primary;
             padding-bottom: 1px;
-            margin: 3px 0;
+            padding: 3px 0;
             border-bottom: 1px solid $border-primary;
         }
-
-        
 
         &-row {
             width: 100%;
@@ -65,11 +64,27 @@
             }
         }
 
+        .danger {
+            border-color: #DD141D;
+        }
+
         .error {
+            width: 100%;
             color: #DD141D;
             font-size: 0.75em;
             font-family: $font-primary;
-            padding: 1px 0;
+            margin-top: .125rem;
+            position: relative;
+
+            >img {
+                width: 16px;
+                
+                position: absolute;
+                right: 0px;
+                bottom: 22px;
+
+                
+            }
         }
     }
 

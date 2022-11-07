@@ -7,13 +7,18 @@
 
         <div class="sign-up-form-input">
             <label for="">Escriba su nombre completo</label>
-            <input type="text" placeholder="Ingrese el nombre" formControlName="name">
+            <input type="text" placeholder="Ingrese el nombre" formControlName="name"
+                [ngClass]="{'danger': form['name'].errors && signUpSubmmitted}"
+            >
             <small class="error"
                 *ngIf="form['name'].errors && signUpSubmmitted"
             >
                 <ng-container [ngSwitch]="form['name'].value">
                     <ng-container *ngSwitchCase="''">El campo es requerido!</ng-container>
                     <ng-container *ngSwitchDefault>Máximo diez caracteres!</ng-container>
+                </ng-container>
+                <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
                 </ng-container>
             </small>
         </div>
@@ -22,7 +27,9 @@
 
         <div class="sign-up-form-input">
             <label for="">Seleccione tipo de documento</label>
-            <select name="" id="" formControlName="documentType">
+            <select name="" id="" formControlName="documentType"
+                [ngClass]="{'danger': form['documentType'].errors && signUpSubmmitted}"
+            >
                 <option class="disabled" value="" disabled selected>Seleccione</option>
                 <option value="CC">Cédula de ciudadanía</option>
                 <option value="TI">Tarjeta de identidad</option>
@@ -34,6 +41,9 @@
                 <ng-container  *ngIf="!form['documentType'].value">
                     <ng-container>Debe elegir un tipo de documento</ng-container>
                 </ng-container>
+                <!-- <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
+                </ng-container> -->
             </small>
         </div>
 
@@ -41,13 +51,18 @@
         
         <div class="sign-up-form-input">
             <label for="">Escriba número de documento</label>
-            <input type="number" placeholder="Ingrese el número" formControlName="documentNumber">
+            <input type="number" placeholder="Ingrese el número" formControlName="documentNumber"
+                [ngClass]="{'danger': form['documentNumber'].errors && signUpSubmmitted}"
+            >
             <small class="error"
                 *ngIf="form['documentNumber'].errors && signUpSubmmitted"
             >
                 <ng-container [ngSwitch]="form['documentNumber'].value">
                     <ng-container *ngSwitchCase="''">El campo es requerido!</ng-container>
                     <ng-container *ngSwitchDefault>Máximo doce caracteres!</ng-container>
+                </ng-container>
+                <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
                 </ng-container>
             </small>
         </div>
@@ -56,7 +71,9 @@
 
         <div class="sign-up-form-input">
             <label for="">Escriba ciudad o municipio</label>
-            <input list="cities" placeholder="Ingrese el nombre" formControlName="city">
+            <input list="cities" placeholder="Ingrese el nombre" formControlName="city"
+                [ngClass]="{'danger': form['city'].errors && signUpSubmmitted}"
+            >
             <datalist id="cities">
                 <option class="disabled" value="" disabled selected >Seleccione</option>
                 <option value="Bogotá">
@@ -68,6 +85,9 @@
             >
                 <ng-container  *ngIf="!form['city'].value">
                     <ng-container>El campo es requerido!</ng-container>
+                </ng-container>
+                <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
                 </ng-container>
             </small>
         </div>
@@ -81,7 +101,9 @@
                 
                 <!--------------------------- Field Road Type --------------------------->
 
-                <select name="roadType" id="roadType" formControlName="roadType">
+                <select name="roadType" id="roadType" formControlName="roadType"
+                    [ngClass]="{'danger': formDirection['roadType'].errors && signUpSubmmitted}"
+                >
                     <option value="" disabled selected>Seleccione</option>
                     <option value="autopista">Autopista</option>
                     <option value="avenida">Avenida</option>
@@ -91,29 +113,40 @@
                 </select>
                 
                 <!--------------------------- Field Road Type --------------------------->
-                <input type="text" formControlName="primaryRoadNumber"><p>#</p>
+                <input type="text" formControlName="primaryRoadNumber"
+                    [ngClass]="{'danger': formDirection['primaryRoadNumber'].errors && signUpSubmmitted}"
+                ><p>#</p>
                 
                 <!--------------------------- Field Road Type --------------------------->
                 
-                <input type="text" formControlName="secondaryRoadNumber"><p>-</p>
+                <input type="text" formControlName="secondaryRoadNumber"
+                    [ngClass]="{'danger': formDirection['secondaryRoadNumber'].errors && signUpSubmmitted}"
+                ><p>-</p>
                 
                 <!--------------------------- Field Road Type --------------------------->
                 
-                <input type="text" formControlName="specificNumber">
+                <input type="text" formControlName="specificNumber"
+                    [ngClass]="{'danger': formDirection['specificNumber'].errors && signUpSubmmitted}"
+                >
             </div>
 
             <!-- Subfield Validation -->
             <small class="error"
                 *ngIf="
-                    formDirection['roadType'].errors || 
-                    formDirection['primaryRoadNumber'].errors ||
-                    formDirection['secondaryRoadNumber'].errors ||
-                    formDirection['specificNumber'].errors
+                    (
+                        formDirection['roadType'].errors || 
+                        formDirection['primaryRoadNumber'].errors ||
+                        formDirection['secondaryRoadNumber'].errors ||
+                        formDirection['specificNumber'].errors
+                    )
                     && signUpSubmmitted
-                "
-            >
+                    "
+                    >
                 <ng-container  *ngIf="!form['city'].value">
                     <ng-container>El campo es requerido!</ng-container>
+                </ng-container>
+                <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
                 </ng-container>
             </small>
         </div>
@@ -129,13 +162,18 @@
 
         <div class="sign-up-form-input">
             <label for="">Número de celular</label>
-            <input type="number" placeholder="Escriba el número" formControlName="phoneNumber">
+            <input type="number" placeholder="Escriba el número" formControlName="phoneNumber"
+                [ngClass]="{'danger': form['phoneNumber'].errors && signUpSubmmitted}"
+            >
             <small class="error"
                 *ngIf="form['name'].errors && signUpSubmmitted"
             >
                 <ng-container [ngSwitch]="form['phoneNumber'].value">
                     <ng-container *ngSwitchCase="''">El campo phoneNumber es requerido!</ng-container>
                     <ng-container *ngSwitchDefault>El contacto debe iniciar con el número 3</ng-container>
+                </ng-container>
+                <ng-container >
+                    <img src="../../../../../assets/icons//Grupo 18568.svg" alt="Error en el campo" >
                 </ng-container>
             </small>
         </div>
