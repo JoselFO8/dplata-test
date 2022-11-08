@@ -1,6 +1,5 @@
 <div class="sign-up-container">
     
-    <!-- Shared reutilizar -->
     <div class="sign-up-bar">
         <a href="#!"><img class="icon" src="../../../../assets/icons/IconoR_16Abajo.svg" alt=""></a>
         <p>Prueba ANGULAR</p>
@@ -8,10 +7,10 @@
     </div>
     
     <div class="sign-up-body">
-        <app-sign-up-form></app-sign-up-form>
+        <app-sign-up-form (newHelpEvent)="changeHelpLocate()" ></app-sign-up-form>
     </div>
 
-    <div class="sign-up-help">
+    <div [ngClass]="helpLocateUp === false ? 'sign-up-help-up' : 'sign-up-help-down'">
         <a href=""><img src="../../../../assets/icons/Grupo 17268.svg" alt=""></a>
     </div>
 

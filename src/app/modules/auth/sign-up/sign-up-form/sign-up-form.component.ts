@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './sign-up-form.component.html',
   styleUrls: ['./sign-up-form.component.scss']
 })
-export class SignUpFormComponent implements OnInit {
+export class SignUpFormComponent {
+  @Output() newHelpEvent = new EventEmitter<boolean>();
   public signUpForm;
   public signUpSubmmitted = false;
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router
-    
   ) {
     this.signUpForm = this.formBuilder.group(
       {
@@ -74,10 +74,6 @@ export class SignUpFormComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    
-  }
-
   get form() {
     return this.signUpForm.controls;
   }
@@ -86,16 +82,18 @@ export class SignUpFormComponent implements OnInit {
     return this.signUpForm.controls.direction.controls;
   }
 
+  changeLocation():void {
+    this.newHelpEvent.emit()    
+  }
+
   authenticate() {
-    // console.log('Autenticated-Prueba', this.signUpForm);
-    // console.log('Autenticated-Valid', this.signUpForm.valid);
     this.signUpSubmmitted = true
+    console.log(this.signUpForm.valid);
+    
     if(!this.signUpForm.valid) {
       return
     }
-    // console.log('Autenticated', this.signUpForm);
     this.router.navigateByUrl('/client')
-
   }
 
 }

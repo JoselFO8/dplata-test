@@ -60,6 +60,7 @@
 
             input {
                 width: 50px;
+                text-align: center;
             }
         }
 
@@ -99,6 +100,11 @@
             
             position: absolute;
             top: 16px;
+            transition: background-color 1s;
+        }
+
+        .valid {
+            background-color: #DD141D;
         }
     }
 }

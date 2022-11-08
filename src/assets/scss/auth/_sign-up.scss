@@ -34,14 +34,29 @@
     }
 
     &-help {
-        position: absolute;
-        right: 0px;
-        top: 541px;
         
-        img {
-            height: 59.21px;
-            width: 62.76px;
+        &-up, &-down {
+            position: absolute;
+            
+            img {
+                height: 59.21px;
+                width: 62.76px;
+            }
         }
+
+        &-up {
+            right: 0px;
+            top: 541px;
+
+        }
+    
+        &-down {
+            right: 0px;
+            top: 112px;
+            transition: top 1s;
+        }
+        
     }
+
     
 }

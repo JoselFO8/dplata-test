@@ -152,7 +152,7 @@
 
         <div class="sign-up-form-input">
             <label for="">Local / Tienda / Barrio / Otro</label>
-            <input type="number" placeholder="Opcional">
+            <input type="text" placeholder="Opcional">
         </div>
 
         <!--------------------------- Field Phone --------------------------->
@@ -161,6 +161,7 @@
             <label for="">Número de celular</label>
             <input type="number" placeholder="Escriba el número" formControlName="phoneNumber"
                 [ngClass]="{'danger': form['phoneNumber'].errors && signUpSubmmitted}"
+                (click)="changeLocation()"
             >
             <small class="error"
                 *ngIf="form['name'].errors && signUpSubmmitted"
@@ -176,7 +177,7 @@
         </div>
 
         <div class="sign-up-form-submit">
-            <button type="submit" (click)="authenticate()">Crear</button>
+            <button [ngClass]="signUpForm.valid === true ? 'valid' : ''" type="submit" (click)="authenticate()">Crear</button>
         </div>
 
     </form>
